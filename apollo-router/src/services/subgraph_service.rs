@@ -129,7 +129,6 @@ impl SubgraphService {
                 .with_root_certificates(store)
                 .with_no_client_auth(),
         };
-        let connector = hyper_rustls::HttpsConnectorBuilder::new()
         let builder = hyper_rustls::HttpsConnectorBuilder::new()
             .with_tls_config(tls_config)
             .https_or_http()
