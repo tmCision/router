@@ -72,7 +72,6 @@ struct Shaping {
      /// Enable HTTP2 for subgraphs
     experimental_enable_http2: Option<bool>,
 }
-}
 
 impl Merge for Shaping {
     fn merge(&self, fallback: Option<&Self>) -> Self {
