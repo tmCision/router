@@ -132,9 +132,6 @@ impl SubgraphService {
         let builder = hyper_rustls::HttpsConnectorBuilder::new()
             .with_tls_config(tls_config)
             .https_or_http()
-            .enable_http1()
-            .enable_http2()
-            .wrap_connector(http_connector);
             .enable_http1();
 
         let connector = if enable_http2 {
