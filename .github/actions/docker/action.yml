@@ -1,0 +1,39 @@
+name: cision-docker-service-action
+author: Jay Danielsen
+description: build and deploy a microservice framework docker image.
+
+inputs:
+  project-name:
+    description: project repository name.
+    required: false
+
+  project-version:
+    description: project-version
+    required: false
+
+outputs:
+  image-name:
+    description: project-name converted to lower case for docker compatibility.
+    value: ${{ steps.image.outputs.image-name }}
+
+  image-id:
+    description: project-version converted to lower case for docker compatibility.
+    value: ${{ steps.image.outputs.image-id }}
+
+runs:
+  using: composite
+  steps:
+    - name: image
+      id: image
+      shell: bash
+      run: |
+        echo "dockerCustom"
+        echo "::set-output name=image-name::$(echo ${{ inputs.project-name}} | tr [:upper:] [:lower:])"
+        echo "::set-output name=image-id::$(echo ${{ inputs.project-version }} | tr [:upper:] [:lower:])"
+    - name: docker-build
+      id: docker-build
+      shell: bash
+      run: |
+        SERVICE_NAME=${{ inputs.project-name }} \
+        VERSION=${{ inputs.project-version }} \
+        ${{ github.action_path }}/docker-build.sh
