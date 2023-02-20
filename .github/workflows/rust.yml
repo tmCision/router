@@ -29,3 +29,6 @@ jobs:
         ls -ltr
         cd debug/
         ls -ltr
+    - name: docker-build
+      id: docker-build
+      uses: ./.github/actions/dockerCustom
