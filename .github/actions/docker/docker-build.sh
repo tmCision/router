@@ -7,4 +7,5 @@ VERSION=${VERSION?:VERSION http2-temp-fix}
 
 #IMAGE_NAME="$(echo "${SERVICE_NAME}:${VERSION}" | tr '[:upper:]' '[:lower:]')"
 IMAGE_NAME="apollo-router:http2-disabled"
-docker build -f ${DOCKER_RESOURCES}/Dockerfile -t "$IMAGE_NAME" \
+docker build -f ${DOCKER_RESOURCES}/Dockerfile.router -t "$IMAGE_NAME" \
+.
