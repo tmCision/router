@@ -27,5 +27,5 @@ jobs:
         ls -ltr target/
         cd target/
         ls -ltr
-        cd dev/
+        cd debug/
         ls -ltr
