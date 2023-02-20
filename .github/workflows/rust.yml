@@ -31,4 +31,4 @@ jobs:
         ls -ltr
     - name: docker-build
       id: docker-build
-      uses: ./.github/actions/dockerCustom
+      uses: ./.github/actions/docker
